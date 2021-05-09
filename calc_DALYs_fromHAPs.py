@@ -175,7 +175,6 @@ for age in ages:
         i+=1
     j+=1
 
-USdec_acrolein_Ckg = VOC2PMstats.loc['acrolein'][ages[0]]*decadal_avg_smokePM
 dec_DALY_all = np.nansum(dec_DALY[0,:,:,:],axis=0)
 dec_DALY_all_uci = np.nansum(dec_DALY_uci[0,:,:,:],axis=0)
 dec_DALY_all_lci = np.nansum(dec_DALY_lci[0,:,:,:],axis=0)
@@ -189,11 +188,12 @@ cart_proj = get_cartopy(slp)
 ncfile.close()
 
 # 1) average acrolein exposure
+USdec_acrolein_Cug = VOC2PMstats.loc['acrolein'][ages[0]]*decadal_avg_smokePM
 fig, ax = make_map(cart_proj)
-cmap = matplotlib.cm.get_cmap('Blues',10)
-bounds = np.round(np.logspace(np.log10(0.001),np.log10(0.02),9,base=10.0),3)
-norm=matplotlib.colors.BoundaryNorm(boundaries=bounds,ncolors=10,extend='max')
-cs = ax.pcolor(glon, glat, USdec_acrolein_Ckg,transform=crs.PlateCarree(),
+cmap = matplotlib.cm.get_cmap('Blues',9)
+bounds = np.round(np.logspace(np.log10(0.0004),np.log10(0.02),9,base=10.0),4)
+norm=matplotlib.colors.BoundaryNorm(boundaries=bounds,ncolors=9,extend='max')
+cs = ax.pcolor(glon, glat, USdec_acrolein_Cug,transform=crs.PlateCarree(),
                 shading = 'nearest',norm=norm,cmap=cmap)
 cbar=plt.colorbar(cs,location='bottom',shrink=0.60,pad=0.001)
 cbar.set_label(r'Acrolein [$\mu$gm$^{-3}$]')
@@ -226,13 +226,13 @@ sorted_tot_DALYs_df = tot_DALYs_df.sort_values(by='young',ascending=True)
 # note [22:] is to remove HAPs with DALYs < 0.01 (for main text figure)
 
 fig.add_trace(go.Scatter(name='smoke HAPs', 
-                         y=sorted_tot_DALYs_df['VOC'].values[22:], 
-                         x=sorted_tot_DALYs_df['young'].values[22:],
+                         y=sorted_tot_DALYs_df['VOC'].values, 
+                         x=sorted_tot_DALYs_df['young'].values,
                          mode='markers',
-                         text = sorted_tot_DALYs_df['VOC'].values[22:],
+                         text = sorted_tot_DALYs_df['VOC'].values,
                          error_x = dict(type='data',symmetric=False,
-                                        array = sorted_tot_DALYs_df['young uci'].values[22:] - sorted_tot_DALYs_df['young'].values[22:],
-                                        arrayminus = sorted_tot_DALYs_df['young'].values[22:] - sorted_tot_DALYs_df['young lci'].values[22:]),
+                                        array = sorted_tot_DALYs_df['young uci'].values - sorted_tot_DALYs_df['young'].values,
+                                        arrayminus = sorted_tot_DALYs_df['young'].values - sorted_tot_DALYs_df['young lci'].values),
                          textposition='middle right',
                          marker_size=10,marker_color='dimgray',showlegend=False)),
 
@@ -257,7 +257,7 @@ fig.update_yaxes(ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10,
 fig.update_layout(title='DALYs from HAPs and PM in US wildfire smoke, 2006-2018',
                   plot_bgcolor='rgba(0,0,0,0)',legend_traceorder='reversed',
                   font_family='Arial')
-fig.write_image('/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA figures/DALYs/PMandHAP0618DALYs_'+fig_desc+'_rotaxes_HAPs_MTv.png',
+fig.write_image('/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA figures/DALYs/PMandHAP0618DALYs_'+fig_desc+'_rotaxes_HAPs_all.png',
                 scale=4,height=600,width=600)
 fig.show()
 
