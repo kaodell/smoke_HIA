@@ -364,15 +364,6 @@ fig.update_yaxes(title_text='% of total asthma<br> hospital admissions',ticks="o
 
 fig.update_xaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)
 
-# be careful with this!!! because of the double-layered plotting above
-# it can shift the axis without changing the data
-# ALWAYS plot with and without these letters to make sure it isnt chaning the scale
-'''
-fig.add_annotation(x=2006, y=7500,text="(a)",showarrow=False,
-            row=1,col=1)
-fig.add_annotation(x=2006, y=1800,text="(b)",showarrow=False,
-            row=2,col=1)
-'''
 fig.show()
 #fig.write_image(out_fig_path + 'annual_acute_'+out_desc+'.png',scale=4,height=600,width=1000)#width=800)
 
