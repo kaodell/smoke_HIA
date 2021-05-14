@@ -12,7 +12,7 @@ Created on Wed Sep 30 16:48:03 2020
 #%% user inputs
 # file locations
 kPM_fp = '/Users/kodell/Desktop/data_not4gdrive/HIA_inputs/PM/'
-kPM_desc = '_v2_meanbk_final' # which kPM file to load
+kPM_desc = '_v2_medbk_final' # which kPM file to load
 pop_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/population/rg_population_2010.nc'
 br_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/inputs/acute_baseline_rates_US.csv'
 state_grid_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/inputs/state_grid.npy'
