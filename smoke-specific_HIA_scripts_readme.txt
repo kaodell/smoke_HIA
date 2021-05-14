@@ -26,7 +26,7 @@ Stage 1: Prep Input Datasets
 	Requires population output from (1.1) to check state assignments
 
 (1.3) prep_smokePM_4HIA.py
-	This code loads all years of the PM data, calculates smoke PM, and saves at netCDF 
+	This code loads all years of the PM data, calculates smoke PM, and saves as a netCDF 
 	of the combined total PM, smoke PM, and HMS to use in the following scripts.
 	
 	This code creates Figures 1 and S2 in the manuscript.
@@ -56,7 +56,7 @@ Stage 2: Acute Smoke PM2.5 HIA
 		from step 1.2, and acute baseline rates available via HCUP (details in paper).
 		
 (2.3) calc_acute_HIA_pool_states.py
-	This calculates the acute HIA by state and creates Figures S6-S9.
+	This code calculates the acute HIA by state and creates Figures S5-S8.
 	
 	Code requires:
 		HIA output from step 2.2, population output from step 1.1, state grid

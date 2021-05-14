@@ -12,7 +12,7 @@ Created on Wed Sep 30 16:48:03 2020
 #%% user inputs
 # file locations
 kPM_fp = '/Users/kodell/Desktop/data_not4gdrive/HIA_inputs/PM/'
-kPM_desc = '_v2_medbk_final' # which kPM file to load
+kPM_desc = '_v2_meanbk_final' # which kPM file to load
 pop_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/population/rg_population_2010.nc'
 br_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/inputs/acute_baseline_rates_US.csv'
 state_grid_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/inputs/state_grid.npy'
@@ -365,7 +365,7 @@ fig.update_yaxes(title_text='% of total asthma<br> hospital admissions',ticks="o
 fig.update_xaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)
 
 fig.show()
-#fig.write_image(out_fig_path + 'annual_acute_'+out_desc+'.png',scale=4,height=600,width=1000)#width=800)
+fig.write_image(out_fig_path + 'annual_acute_'+out_desc+'.png',scale=4,height=600,width=1000)#width=800)
 
 #%% 3a) Events by EPA region by season
 # not in paper

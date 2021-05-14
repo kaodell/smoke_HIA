@@ -9,7 +9,6 @@ Created on Thu Jun 18 09:28:29 2020
 """
 #%% user inputs
 shapefile_fn_state = 'cb_2018_us_state_20m/cb_2018_us_state_20m'
-shapefile_fn_country = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA scripts/Longitude_Graticules_and_World_Countries_Boundaries-shp/99bfd9e7-bb42-4728-87b5-07f8c8ac631c2020328-1-1vef4ev.lu5nk.shp'
 pop_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/population/rg_population_2010.nc'
 # csv with states and assoc. EPA regions ... ultimately not used in paper
 epa_region_fn = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/inputs/EPAregions.csv'
@@ -282,11 +281,6 @@ np.save(EPAregion_grid_out_fn,EPA_grid)
 # load world map shape file 
 country_grid = np.empty(glon.shape).astype('str')
 country_grid[:] = 'NA'
-country_file = shapefile.Reader(shapefile_fn_country)
-country_shp = country_file.shape(0)
-country_records = country_file.records()
-country_shapes = country_file.shapes()
-si = 0
 
 # lets assign all the added points for the states above to the US
 US_inds = np.where(state_grid != 'NA')

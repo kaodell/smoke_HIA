@@ -28,13 +28,6 @@ desc = kPM_desc+'_2010pop'
 years = np.arange(2006,2019)
 
 #%% user-defined functions
-def plot_background(ax):
-    ax.set_extent([235., 290., 20., 55.])
-    ax.add_feature(cfeature.COASTLINE.with_scale('50m'), linewidth=0.5)
-    ax.add_feature(cfeature.STATES, linewidth=0.5)
-    ax.add_feature(cfeature.BORDERS, linewidth=0.5)
-    return ax
-
 def mk_map(ax):
     ax.patch.set_visible(False)
     shapename = 'admin_1_states_provinces_lakes_shp'
@@ -383,6 +376,13 @@ plt.show()
 
 #%% plot difference in non_smoke for both methods
 '''
+def plot_background(ax):
+    ax.set_extent([235., 290., 20., 55.])
+    ax.add_feature(cfeature.COASTLINE.with_scale('50m'), linewidth=0.5)
+    ax.add_feature(cfeature.STATES, linewidth=0.5)
+    ax.add_feature(cfeature.BORDERS, linewidth=0.5)
+    return ax
+
 fig, axarr = plt.subplots(nrows=1, ncols=1, figsize=(20, 13), constrained_layout=True,
                       subplot_kw={'projection': ccrs.PlateCarree()})
 ## IMPORTANT - adjust lat lons to corners!!

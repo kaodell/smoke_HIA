@@ -42,7 +42,7 @@ PM_DALY_desc = kPM_desc+'_pop2010'
 # ratio file name
 # these ratios are in ug m-3 HAP/ ug m-3 PM and can be downloaded
 # from the supplementary material of O'Dell et al. (2020) https://doi.org/10.1021/acs.est.0c04497
-ratio_data_fn = '/Users/kodell/Local Google Drive /CSU/Research/NSF/WECAN PM_VOC health/health risk tables/VOC2PM_ratios_4paper_NASAmrg_R1TOGAupdate_nonpar_stats.csv'
+ratio_data_fn = '/Users/kodell/Local Google Drive /CSU/Research/NSF/WECAN PM_VOC health/health risk tables/VOC2PM_ratios_4paper_NASAmrg_R1TOGAupdate_nonpar_stats_2.5_97.5_test.csv'
 
 # DALY damage and effect factors file
 # these are the combined damage and effect factors from Huijbregts et al. (2005) 
