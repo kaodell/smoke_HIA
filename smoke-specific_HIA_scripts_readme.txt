@@ -1,15 +1,13 @@
 smoke-specific_HIA_scripts_readme.txt
 written by Katelyn O'Dell
-04.27.21
+04.27.21 - initial document
+07.29.21 - edits post reviewer comments
 
 This folder contains all the python scripts used in the analysis for
 "Estimated mortality and morbidity attributable to smoke plumes in the US: Not just a western US problem"
 
 Authors: Katelyn O’Dell, Kelsey Bilsback, Bonne Ford, Sheena E. Martenies, Sheryl Magzamen, 
 Emily V. Fischer, and Jeffrey R. Pierce
-
-For submission to GeoHealth special issue, “Fires in the Earth System”
-Submission Open 08 April 2020 - 31 May 2021
 
 In order to perform the analysis presented in the paper, 
 these codes are run in the following order:
@@ -29,7 +27,7 @@ Stage 1: Prep Input Datasets
 	This code loads all years of the PM data, calculates smoke PM, and saves as a netCDF 
 	of the combined total PM, smoke PM, and HMS to use in the following scripts.
 	
-	This code creates Figures 1 and S2 in the manuscript.
+	This code creates Figures 1 and S10 in the manuscript.
 	
 	Code requires: 
 		krigged PM2.5 dataset available for download at: https://doi.org/10.25675/10217/230602
@@ -41,22 +39,22 @@ Stage 2: Acute Smoke PM2.5 HIA
 	This code conducts a monte-carlo fixed-effect pooling of odds ratios for asthma ED
 	visits and asthma hospitalizations from the US studies included in Borchers Arrigada et al.
 	(2019) with additional recently published western US studies and eastern US studies. 
-	This code creates Figure S1. 
+	This code creates Figure S3. 
 	
 	Code requires:
 		csv file with odds ratios to pool. All of these values are available in the
-		publications referenced in Figure S1.
+		publications referenced in Figure S3.
 
 (2.2) calc_acute_HIA_pool_EPAregions.py
 	This code calculates the acute smoke PM2.5 HIA and sums by regions in the paper.
-	Figures 2, 3, S3, S4, and S5 are created in this code.
+	Figures 2, 3, S1, S2, S4, and S5 are created in this code.
 	
 	Code requires:
 		Krigged PM output from step 1.3, population output from step 1.1, state grid
 		from step 1.2, and acute baseline rates available via HCUP (details in paper).
 		
 (2.3) calc_acute_HIA_pool_states.py
-	This code calculates the acute HIA by state and creates Figures S5-S8.
+	This code calculates the acute HIA by state and creates Figures S6-S9.
 	
 	Code requires:
 		HIA output from step 2.2, population output from step 1.1, state grid
@@ -81,7 +79,7 @@ Stage 3: Chronic Smoke PM2.5 and Smoke HAPs HIA
 	
 (3.3) calc_DALYs_fromHAPs.py
 	This code estimates HAPs concentrations, calculates DALYs from HAPs,
-	and creates Figure 5 in the main text and Figures S10 and S11 in the supplement.
+	and creates Figure 5 in the main text and Figures S11 and S12 in the supplement.
 	
 	Code requires:
 		HAPs to PM ratios from O'Dell et al. (2020) supplementary data, 
