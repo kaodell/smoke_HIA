@@ -36,7 +36,7 @@ cause = 'allcause'
 # cause = '5leadingcauses'
 
 # description for output files
-out_desc = desc + cause 
+out_desc = desc + cause + '_reviewer_edits'
 # out figure path
 out_data_path = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/mortalities/'
 out_fig_path = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA figures/mort_bystate/'
@@ -218,10 +218,11 @@ def mk_map(ax):
 
 
 # set up a blank map with multiple subplots
-fig,axarr = plt.subplots(ncols=2,nrows=2,
+fig,axarr = plt.subplots(ncols=2,nrows=2,figsize=(5,5),
                       subplot_kw={'projection': cart_proj})
 titles = np.array([['(a) Total PM$_{2.5}$\n mortalities','(b) Smoke PM$_{2.5}$\n attributable mortalities'],
-                   ['(c) Percent of all mortalities','(d) Percent of all mortalities']])
+                   ['(c) Percent of all mortalities\n attributable to total PM$_{2.5}$',
+                    '(d) Percent of all mortalities\n attributable to smoke PM$_{2.5}$']])
 data = np.array([[gstate_allPM_mort/1000.0,gstate_smokePMaf_mort/1000.0],
                    [gstate_allPM_mortw,gstate_smokePMaf_mortw]])
 cbar_labels = np.array([['Annual mortalities (1000s)','Annual mortalities (1000s)'],
@@ -247,8 +248,8 @@ bottom=0.17,
 left=0.12,
 right=0.89,
 hspace=0.0,
-wspace=0.0)
-plt.savefig(out_fig_path+'paper_mort_map'+out_desc+'_updateshp.png',dpi=500)
+wspace=0.2)
+plt.savefig(out_fig_path+'paper_mort_map'+out_desc+'_updateshp.png',dpi=300)
 plt.show()
 
  

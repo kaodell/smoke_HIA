@@ -20,7 +20,7 @@ state_grid_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-spec
 # out file and figure path and descrption
 out_fp = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/acute_outcomes/'
 out_fig_path ='/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA figures/acute_outcomes/'
-out_desc = '_byBreyregion_kPM'+kPM_desc+'_final'
+out_desc = '_byBreyregion_kPM'+kPM_desc+'_final_reviewer_edits'
 
 # years to calc HIA
 years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
@@ -166,6 +166,7 @@ for i in range(poolRRs.shape[0]):
     annual_event_all_uci = np.concatenate([annual_event_all_uci,annual_event_uci],axis=0)
     
     #seasonal sums
+    # JFM, AMJ, JAS, OND
     JFM = np.array([np.nansum(event[:,:91,:,:],axis=1)])
     JFM_all = np.concatenate([JFM_all,JFM],axis=0)
     
@@ -177,7 +178,23 @@ for i in range(poolRRs.shape[0]):
     
     OND = np.array([np.nansum(event[:,274:,:,:],axis=1)])
     OND_all = np.concatenate([OND_all,OND],axis=0)
+    '''
+    # DJF, MAM, JJA, SON test in reponse to reviewers and new supplemental figures
+    # going to use old abbr so we dont have to change that below
+    JFM1 = np.array([np.nansum(event[:,:60,:,:],axis=1)])
+    JFM2 = np.array([np.nansum(event[:,335:,:,:],axis=1)])
+    JFM = JFM1 + JFM2
+    JFM_all = np.concatenate([JFM_all,JFM],axis=0)
+   
+    AMJ = np.array([np.nansum(event[:,60:152,:,:],axis=1)])
+    AMJ_all = np.concatenate([AMJ_all,AMJ],axis=0)
     
+    JAS = np.array([np.nansum(event[:,152:244,:,:],axis=1)])
+    JAS_all = np.concatenate([JAS_all,JAS],axis=0)
+    
+    OND = np.array([np.nansum(event[:,244:335,:,:],axis=1)])
+    OND_all = np.concatenate([OND_all,OND],axis=0)
+    '''
     i += 1
 
 # sum across the grid cells, and remove first empty column
@@ -348,7 +365,7 @@ fig.add_trace(go.Bar(x=years,y=[0]*len(years),marker_color = 'white',showlegend=
                                   array=100.0*(np.sum(annual_event_sum_byEPAr_plot[1,:,:],axis=1)-annual_event_sum_lci[1,:])/asth_hosp_total)),
                      row=2,col=1,secondary_y=True)
 fig.update_layout(plot_bgcolor='white',barmode='stack',font_family='Arial',font_size=18,
-                  title='<b>2006-2018 smoke-attributable morbidity by region</b>')
+                  title='<b>2006-2018 smoke-attributable asthma morbidity by region</b>')
 fig.update_yaxes(title_text=outcome_names_fig[0],ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10,
                  showline=True, linewidth=1, linecolor='black',
                  row=1,col=1,secondary_y=False)
@@ -361,7 +378,6 @@ fig.update_yaxes(title_text='% of total asthma<br>ED visits',ticks="outside", ti
 fig.update_yaxes(title_text='% of total asthma<br> hospital admissions',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10,
                  showline=True, linewidth=1, linecolor='black',
                  row=2,col=1,secondary_y=True)
-
 fig.update_xaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)
 
 fig.show()
@@ -419,7 +435,7 @@ for j in range(num_regions):
                      marker_color = 'orange',showlegend=show_leg[j]),
                      row=inds[j][0],col=inds[j][1])
 fig.update_layout(plot_bgcolor='white',barmode='stack',font_family='Arial',legend_traceorder='normal',
-                  title = '<b>Normalized regional smoke-attributable morbidity by season</b>')
+                  title = '<b>Normalized regional smoke-attributable asthma morbidity by season</b>')
 fig.update_yaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)
 fig.update_yaxes(title='% of smoke-attributable<br>asthma ED visits',row=1,col=1)
 fig.update_yaxes(title='% of smoke-attributable<br>asthma ED visits',row=2,col=1)
@@ -470,7 +486,7 @@ for j in range(num_regions):
                      marker_color = 'orange',showlegend=False),
                      row=inds[j][0],col=inds[j][1],secondary_y=True)
 fig.update_layout(plot_bgcolor='white',barmode='stack',font_family='Arial',legend_traceorder='normal',
-                  title='<b>Regional smoke-attributable morbidity by season</b>')
+                  title='<b>Regional smoke-attributable asthma morbidity by season</b>')
 fig.update_yaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', 
                  ticklen=10, secondary_y=False)
 fig.update_yaxes(showline=True, linewidth=1, linecolor='crimson',ticks="outside", tickwidth=2, tickcolor='crimson', 
@@ -509,7 +525,7 @@ fig.add_trace(go.Bar(x=region_names,y=100.0*(sum_allyears[3,:]/np.nansum(sum_all
              name='Fall (OND)',
              marker_color = 'orange',showlegend=show_leg[j]))
 fig.update_layout(plot_bgcolor='white',barmode='stack',font_family='Arial',legend_traceorder='normal',
-                  title = '<b>Normalized regional smoke-attributable morbidity by season 2006-2018</b>')
+                  title = '<b>Normalized regional smoke-attributable asthma morbidity by season 2006-2018</b>')
 fig.update_yaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)
 fig.update_yaxes(title='% of smoke-attributable<br>asthma ED visits')
 fig.update_xaxes(showline=True, linewidth=1, linecolor='black',ticks="outside", tickwidth=2, tickcolor='gray', ticklen=10)

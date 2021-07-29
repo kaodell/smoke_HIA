@@ -22,7 +22,7 @@ br_file = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA
 # out file and figure path and descrption
 out_fp = '/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA data/outputs/acute_outcomes/'
 out_fig_path ='/Users/kodell/Local Google Drive /CSU/Research/NSF/smoke-specific HIA/smoke-specific HIA figures/acute_outcomes/'
-out_desc = '_byState_'+acute_HIA_file[-28:-4]
+out_desc = '_byState_'+acute_HIA_file[-28:-4]+'_reviewer_edits'
 
 # years
 years = [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
@@ -154,7 +154,7 @@ for season in ['JFM','AMJ','JAS','OND']:
     axarr[14].outline_patch.set_edgecolor('white')
     cax,kw = matplotlib.colorbar.make_axes(axarr[13],location='bottom',pad=-5)
     cbar=fig.colorbar(cs,cax=cax,**kw,extend='max')
-    cbar.set_label('% annual ED visits in '+season,fontsize=12,fontproperties = font)
+    cbar.set_label('% annual asthma ED visits in '+season,fontsize=12,fontproperties = font)
     plt.subplots_adjust(top=0.95,bottom=0.01,left=0.05,right=0.99,hspace=0.2,wspace=0.0)
     plt.savefig(out_fig_path+'paper_'+season+'_morbidity_map'+out_desc+'.png',dpi=500)
     plt.show()
