@@ -220,7 +220,7 @@ def mk_map(ax):
 # set up a blank map with multiple subplots
 fig,axarr = plt.subplots(ncols=2,nrows=2,figsize=(5,5),
                       subplot_kw={'projection': cart_proj})
-titles = np.array([['(a) Total PM$_{2.5}$\n mortalities','(b) Smoke PM$_{2.5}$\n attributable mortalities'],
+titles = np.array([['(a) Total PM$_{2.5}$\n attributable mortalities','(b) Smoke PM$_{2.5}$\n attributable mortalities'],
                    ['(c) Percent of all mortalities\n attributable to total PM$_{2.5}$',
                     '(d) Percent of all mortalities\n attributable to smoke PM$_{2.5}$']])
 data = np.array([[gstate_allPM_mort/1000.0,gstate_smokePMaf_mort/1000.0],
