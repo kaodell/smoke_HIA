@@ -3,6 +3,9 @@ written by Katelyn O'Dell
 04.27.21 - initial document
 07.29.21 - edits post reviewer comments
 
+Archived using zenodo on 08.05.2021 
+https://zenodo.org/badge/latestdoi/365647951
+
 This folder contains all the python scripts used in the analysis for
 "Estimated mortality and morbidity attributable to smoke plumes in the US: Not just a western US problem"
 
