@@ -12,6 +12,10 @@ This folder contains all the python scripts used in the analysis for
 Authors: Katelyn O’Dell, Kelsey Bilsback, Bonne Ford, Sheena E. Martenies, Sheryl Magzamen, 
 Emily V. Fischer, and Jeffrey R. Pierce
 
+Conda environments used to run these scripts for the analysis presented in the paper are available in this repository:
+python2_smokeHIA_env.txt (environment used for codes run in python2)
+python3_smokeHIA_env.txt (environment used for codes run in python3)
+
 In order to perform the analysis presented in the paper, 
 these codes are run in the following order:
 
