@@ -98,3 +98,6 @@ Stage 3: Chronic Smoke PM2.5 and Smoke HAPs HIA
 		from step 1.2, and PM DALYs from step 3.1
 		
 and that's a wrap!
+
+NOTE:
+# 03.32.23 - I have since realized I have a few instances in the pool_asth_OR.py code of setting pandas values with chained indexing (which is ill-advised as it may not often work as exptected). I re-looked over this code and believe the instances in which I had those issues I had confirmed the code was working as expected or the output of the code indicates it worked as expected. I also beleive the locaitons where this occurs, if it was an error, would not lead to major changes in my anlysis. However, if anyone uses this code in the future, those istances should be resolved. See here for details on this warning in pandas: https://pandas.pydata.org/docs/user_guide/indexing.html#indexing-view-versus-copy.
